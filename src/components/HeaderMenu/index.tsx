@@ -2,6 +2,7 @@ import { ButtonDefault } from "../ButtonDefault";
 import { StyledMenu } from "./styles";
 
 export function HeaderMenu() {
+    
     return (
         <>
             <StyledMenu>
@@ -9,7 +10,7 @@ export function HeaderMenu() {
                         FitPlace
                     </div>
                     <div>
-                        <ButtonDefault name="PROCURAR"/>
+                        <ButtonDefault name="PROCURAR" inputValue="" />
                     </div>
                     <div>
                         PRODUTOS

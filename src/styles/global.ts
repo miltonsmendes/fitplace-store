@@ -5,6 +5,8 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         --background: #f0f2f5;
         --black: #1D2124
+        --red-theme: #CC232C;
+        --red-hover: #aa1d24;
     }
 
     * {

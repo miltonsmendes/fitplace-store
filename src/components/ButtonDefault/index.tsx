@@ -1,16 +1,29 @@
+import { useState } from "react";
 import { StyledButton } from "./styles";
 
-interface ButtonProps{
+interface ButtonProps {
     name: string;
+    inputValue: string;
 }
 
-export function ButtonDefault(props: ButtonProps) {
+interface InputTextProps {
+    inputValue: string;
+}
+
+export function ButtonDefault({ name }: ButtonProps, { inputValue }: InputTextProps) {
+
+    const [inputText, setInputText] = useState<string>("");
+    
+    function handleInputValue() {
+        inputValue = inputText;
+    }
+     
     return (
         <>
             <StyledButton>
                 <div>
-                    <input></input>
-                    <button type="button">{props.name}</button>
+                    <input type="text" onChange={(e) => { setInputText(e.target.value) }} value={inputText} />
+                    <button type="button" onClick={handleInputValue}>{name}</button>
                 </div>
             </StyledButton>
         </>
