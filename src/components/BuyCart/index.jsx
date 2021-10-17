@@ -1,6 +1,6 @@
 import { StyledContainerCart, StyledTitleCart, StyledProductLine, StyledProductDescription, StyledQtd, StyledProductInfo, StyledSubtotal, StyledDivisor, StyledCartFooter } from "./styles";
 import ProductImage from "../../assets/images/tenisPreto1.jpg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // interface DataAPIProps {
 //     id: number,
@@ -11,50 +11,66 @@ import { useState } from "react";
 
 export function BuyCart() {
 
-    //const [inputValue, setInputValue] = useState < string > ("");
-
-    const fakeAPI = [
+    const [fakeAPI, setFakeAPI] = useState([
         {
             id: 1,
             product: "Tênis de Caminhada Leve Confortável",
             prize: 299.00,
             img: "ProductImage",
+            qnt: 1
         },
         {
             id: 2,
             product: "Tênis Addidas de Run It",
             prize: 499.00,
             img: "ProductImage",
+            qnt: 1
         },
         {
             id: 3,
             product: "Tênis Addidas de Run It",
             prize: 499.00,
             img: "ProductImage",
+            qnt: 1
         },
-    ]
+    ]);
 
-    // const cartTotalValue = 0;
+    const [qntChange, setQntChange] = useState(false);
+    
+    let cartValue = 0;
 
-    // const lista = fakeAPI.map(
-    //     (products) => {
-    //         cartTotalValue += products.prize;
-    //     });
+    fakeAPI.map(item => {
+        cartValue = cartValue + (item.prize * item.qnt);
+    })
 
-    const [productQtd, setProductQtd] = useState(1);
-
-    function handlePlusButton() {
-        setProductQtd(productQtd+1);
-        console.log(productQtd);
+    function handlePlusButton(id) {
+        fakeAPI.map(item => {
+            if (item.id === id) {
+                item.qnt++;
+                setQntChange(!qntChange)
+            }
+        })
     }
-    function handleMinusButton() {
-        setProductQtd(productQtd-1);
-        console.log(productQtd);
+
+    function handleMinusButton(id) {
+        fakeAPI.map(item => {
+            if (item.id === id && item.qnt > 1) {
+                item.qnt--;
+                setQntChange(!qntChange)
+            }
+        })
     }
+
+    function handleDelete(id) {
+        setFakeAPI(prev => prev.filter(item => item.id !== id))
+    }
+
+    useEffect(() => {
+        
+    }, [qntChange])
 
     return (
         <>
-            {fakeAPI.map((item) => { })}
             <StyledContainerCart>
 
                 <StyledTitleCart>
@@ -64,43 +80,43 @@ export function BuyCart() {
                 </StyledTitleCart>
 
                 {fakeAPI.map((item) => {
-                    return (<ul key={item.id}>
-                        <StyledProductLine>
-                            <StyledProductDescription>
-                                <div>
-                                    <img src={ProductImage} />
-                                </div>
-
-                                <StyledProductInfo>
+                    return (
+                        <ul key={item.id}>
+                            <StyledProductLine>
+                                <StyledProductDescription>
                                     <div>
-                                        <h6>{item.product}</h6>
+                                        <img src={ProductImage} />
                                     </div>
+
+                                    <StyledProductInfo>
+                                        <div>
+                                            <h6>{item.product}</h6>
+                                        </div>
+                                        <div>
+                                            <h6>R$ {item.prize}</h6>
+                                        </div>
+                                    </StyledProductInfo>
+                                </StyledProductDescription>
+
+                                <StyledQtd>
+                                    <div><i class="fas fa-minus-circle" disabled={item.qnt <= 1 ? true : false} onClick={() => handleMinusButton(item.id)}></i></div>
+                                    <div><input type="number" min="1" value={item.qnt}></input></div>
+                                    <div><i class="fas fa-plus-circle" onClick={() => handlePlusButton(item.id)}></i></div>
+                                </StyledQtd>
+
+                                <StyledSubtotal>
                                     <div>
-                                        <h6>R$ {item.prize}</h6>
+                                        {(item.prize * item.qnt).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
                                     </div>
-                                </StyledProductInfo>
-                            </StyledProductDescription>
+                                    <div><i class="fas fa-trash" onClick={() => handleDelete(item.id)}></i></div>
+                                </StyledSubtotal>
 
-                            <StyledQtd>
-                                <div><a><i class="fas fa-minus-circle" onClick={handleMinusButton}></i></a></div>
-                                <div><input type="number" min="1" value={productQtd}></input></div>
-                                <div><i class="fas fa-plus-circle" onClick={handlePlusButton}></i></div>
-                            </StyledQtd>
+                            </StyledProductLine>
 
-                            <StyledSubtotal>
-                                <div>
-                                    R$ {item.prize * productQtd}
-                                </div>
-                                <div><i class="fas fa-trash"></i></div>
-                            </StyledSubtotal>
-
-                        </StyledProductLine>
-
-                        <StyledDivisor>
-                            <div />
-                        </StyledDivisor>
-
-                    </ul>)
+                            <StyledDivisor>
+                                <div />
+                            </StyledDivisor>
+                        </ul>)
                 })}
 
                 <StyledCartFooter>
@@ -112,12 +128,11 @@ export function BuyCart() {
                             <h5>TOTAL</h5>
                         </div>
                         <div>
-                            <h5>R$ 319,80</h5>
+                            <h5>{cartValue.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h5>
                         </div>
 
                     </div>
                 </StyledCartFooter>
-
 
             </StyledContainerCart>
 

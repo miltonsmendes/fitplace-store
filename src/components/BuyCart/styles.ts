@@ -93,6 +93,7 @@ export const StyledQtd = styled.div`
         color: #88181e;
         cursor: pointer;
     }
+    
 `;
 
 export const StyledSubtotal = styled.div`
@@ -137,6 +138,8 @@ export const StyledCartFooter = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    margin-top: 2rem;
 
 button {
     background: #343A40;
