@@ -3,7 +3,7 @@ import { CarouselLauched } from "./components/CarouselLauched";
 import { HeaderMenu } from "./components/HeaderMenu";
 import { ContainerTitles } from "./components/HeaderMenu/styles";
 import { ResponsiveMenu } from "./components/ResponsiveMenu";
-import { Logo } from "./components/Logo";
+import { ListItems } from "./components/ListItems";
 
 import { GlobalStyle } from "./styles/global";
 
@@ -12,8 +12,8 @@ function App() {
   return (
     <>
     {/* <Logo /> */}
-     <ResponsiveMenu />
-
+    <ResponsiveMenu />
+    <ListItems />
       {/* <BuyCart /> */}
 
 

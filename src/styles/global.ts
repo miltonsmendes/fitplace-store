@@ -7,6 +7,11 @@ export const GlobalStyle = createGlobalStyle`
         --black: #1D2124
         --red-theme: #CC232C;
         --red-hover: #aa1d24;
+
+        --purple-theme: #3951A6;
+        --purple-hover: #304489;
+        --cyan-theme: #2CC4CA;
+        -cyan-hover: #2CC4CA;
     }
 
     * {
@@ -45,5 +50,6 @@ export const GlobalStyle = createGlobalStyle`
     [disabled] {
         opacity: 0.6;
         cursor: not-allowed;
-    }
+    }   
+}
 `;

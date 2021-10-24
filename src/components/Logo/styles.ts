@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 
-
 export const Container = styled.div`
 
 display: flex;
@@ -27,7 +26,7 @@ background: white;
 
 .div-f{
     display: flex;
-    background-color: #3951A6;
+    background-color: var(--purple-theme);
     font-family: Roboto, sans-serif;
     color: white;
     font-size: 0.75rem;
@@ -41,7 +40,9 @@ background: white;
 
 .div-p{
     display: flex;
-    background-color: #30D8DE;
+    
+    background-color: var(--cyan-theme);
+
     font-family: Roboto, sans-serif;
     color: white;
     font-size: 0.75rem;
@@ -55,7 +56,9 @@ background: white;
 }
 
 .div-store{
-   font-family: "Nunito Sans", sans-serif;
+    //font-family: "Nunito Sans", sans-serif;
+    font-family: Orbitron, sans-serif;
+
     color: black;
     font-size: 0.4rem;
 
@@ -63,7 +66,7 @@ background: white;
     justify-content: center;
     align-items: center;
 
-    margin-top: 5px;
+    margin-top: 3px;
 
 }
 

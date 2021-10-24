@@ -1,20 +1,34 @@
-import { StyledContainerCart, StyledTitleCart, StyledProductLine, StyledProductDescription, StyledQtd, StyledProductInfo, StyledSubtotal, StyledDivisor, StyledCartFooter } from "./styles";
-import ProductImage from "../../assets/images/tenisPreto1.jpg";
 import { useState, useEffect } from "react";
+import { CardShowProduct } from '../CardShowProduct';
+import { productList } from '../../data/productList';
+import { StyleShowCase } from './styles';
 
-// interface DataAPIProps {
-//     id: number,
-//     product: string,
-//     prize: number,
-//     img: string,
-// }
+export function ListItems() {
 
-export function ListItems(data) {
-
+    const [products, setProducts] = useState(productList);
 
     return (
         <>
+            <h1>PRODUTO</h1>
+            <div>HOME/ COLEÇÃO / PRODUTO</div>
 
+            <div>
+                <div>FILTRO</div>
+                <div>ORDENAR</div>
+            </div>
+
+            <StyleShowCase>
+                {
+                    products.map(item => {
+
+                        return (
+                            <div key={item.id}>
+                                <CardShowProduct item={item} />
+                            </div>
+                        )
+                    })
+                }
+            </StyleShowCase>
 
         </>
     );

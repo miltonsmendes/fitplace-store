@@ -1,17 +1,24 @@
 import styled from 'styled-components';
-
+//import GlobalStyle from '.';
 
 
 export const StyleNavBar = styled.div`
 
+font-family: Montserrat, sans-serif;
+
 .NavBarItems{
 
-background: linear-gradient(90deg, #aa1d24 0%, #CC232C 100%);
+    
+//background: linear-gradient(90deg, #aa1d24 0%, #CC232C 100%);
+
+background: linear-gradient(90deg, var(--purple-theme) 30%, var(--cyan-theme) 100%);
 height: 80px;
 display: flex;
 justify-content: center;
 align-items: center;
 font-size: 1.2rem;
+
+
 }
 
 
@@ -39,13 +46,16 @@ font-size: 1.2rem;
 }
 
 .nav-links {
-    color: #FFFFFF;
+    //color: #FFFFFF;
+    //color: #EEEEEE;
+    color: #F1F1F1;
     text-decoration: none;
     padding: 0.5rem 1rem;
 }
 
 .nav-links:hover {
-    background-color: #aa1d24;
+    //background-color: #aa1d24;
+    background-color: var(--purple-theme);
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
@@ -80,7 +90,8 @@ font-size: 1.2rem;
     }
 
     .nav-menu.active {
-        background: #aa1d24;
+        //background: #aa1d24;
+        background: var(--purple-theme);
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
@@ -95,7 +106,9 @@ font-size: 1.2rem;
     }
 
     .nav-links:hover{
-        background-color: #91141B;
+        //background-color: #91141B;
+        background-color: var(--purple-theme);
+        color: #F1F1F1;
         border-radius: 0;
     }
 
