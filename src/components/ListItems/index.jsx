@@ -1,21 +1,29 @@
 import { useState, useEffect } from "react";
 import { CardShowProduct } from '../CardShowProduct';
 import { productList } from '../../data/productList';
-import { StyleShowCase } from './styles';
+import { Container, StyleShowCase, StyleFilterButton, StyleSortButton, StyleContainerFilter } from './styles';
 
 export function ListItems() {
 
     const [products, setProducts] = useState(productList);
 
     return (
-        <>
-            <h1>PRODUTO</h1>
-            <div>HOME/ COLEÇÃO / PRODUTO</div>
+        <Container>
+            <h1>PRODUTOS</h1>
+            <span>HOME / COLEÇÃO / PRODUTO</span>
 
-            <div>
-                <div>FILTRO</div>
-                <div>ORDENAR</div>
-            </div>
+            
+            <StyleContainerFilter>
+                <StyleFilterButton>
+                    <i class="fas fa-sliders-h"></i>
+                    FILTRO
+                </StyleFilterButton>
+
+                <StyleSortButton>
+                    ORDENAR
+                    <i class="fas fa-sort-down"></i>
+                </StyleSortButton>
+            </StyleContainerFilter>
 
             <StyleShowCase>
                 {
@@ -29,7 +37,6 @@ export function ListItems() {
                     })
                 }
             </StyleShowCase>
-
-        </>
+        </Container>
     );
 }

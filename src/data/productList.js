@@ -50,7 +50,7 @@ var productList = [
     {
         id: 5,
         category: 'Whey',
-        productName: 'Whey Protein Vita FOR',
+        productName: 'Whey Protein Vita FORT',
         imageURL: 'https://d1x2fy81mnvl5k.cloudfront.net/Custom/Content/Products/98/53/985342_isofort-900g-vitafor_m6_637311861278573946.png',
         prize: 155.0,
         onSale: 'yes',
@@ -62,7 +62,7 @@ var productList = [
     {
         id: 6,
         category: 'Whey',
-        productName: 'Why Triple 0 Integral Médica',
+        productName: 'Why Triple ZERO Integral Médica',
         imageURL: 'https://cf.shopee.com.br/file/6ca0f18594b9bde24858e7cc6b021626',
         prize: 175.0,
         onSale: 'yes',
