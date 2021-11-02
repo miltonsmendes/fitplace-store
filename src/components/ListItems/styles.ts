@@ -102,3 +102,41 @@ i{
 }
 
 `;
+
+export const StyleModalFilterContainer = styled.div`
+
+background: coral;
+width: 20%;
+height: 100%;
+padding: 1.5rem;
+
+z-index: 1;
+position: fixed;
+left: 0;
+bottom: 0;
+
+@media (max-width: 375px){
+    width: 100%;
+}
+
+div:first-child{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    i{
+        display: flex;
+        justify-self: flex-end;
+        margin-left: 0.5rem;
+    }
+}
+
+`;
+
+export const StyleFilterItems = styled.div`
+
+display: flex;
+flex-direction: row;
+margin: 0.5rem 0;
+
+`;
