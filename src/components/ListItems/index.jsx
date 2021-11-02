@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import { CardShowProduct } from '../CardShowProduct';
 import { productList } from '../../data/productList';
 import { categoriesList } from '../../data/categoriesList';
-import { Container, StyleShowCase, StyleFilterButton, StyleSortButton, StyleContainerFilter, StyleModalFilterContainer, StyleFilterItems } from './styles';
+import { Container, StyleShowCase, StyleFilterButton, StyleSortButton, StyleContainerFilter, StyleModalFilterContainer, StyleFilterItems, ContainerComponent, StyleFilterCategory } from './styles';
 
 export function ListItems() {
 
     const [categories, setCategories] = useState(categoriesList);
+    const [closeModal, setCloseModal] = useState(false);
 
     var usingFilter = false;
     var countFalseFilters = 0;
@@ -25,6 +26,10 @@ export function ListItems() {
 
     //************************************************************************************************************************//
 
+    function handleOpenFilter() {
+        setCloseModal(!closeModal);
+    }
+
     function handleCheckFilter() {
 
         var filteredProducts = [];
@@ -39,7 +44,7 @@ export function ListItems() {
 
         return filteredProducts;
     }
-   
+
     categories.map(dpt => {
         if (dpt.checked != false) {
             countFalseFilters++;
@@ -48,30 +53,33 @@ export function ListItems() {
         }
     })
 
-    if(countFalseFilters > 0 ){
+    if (countFalseFilters > 0) {
         usingFilter = false
     } else {
         usingFilter = true
     }
 
-    
+
     return (
-        <>
-            <StyleModalFilterContainer>
-                <div>
+        <ContainerComponent>
+            <StyleModalFilterContainer className={closeModal ? "visible" : "hidden"}>
+                <div className="title-modal-row" onClick={handleOpenFilter}>
                     <div>FILTRO</div>
                     <div><i className='fas fa-times'></i></div>
                 </div>
 
-                <div>
-                    <div>Categoria</div>
+                <div className="background-modal" />
+
+
+                <StyleFilterCategory >
+                    <div>Categorias</div>
                     {
                         categoriesList.map((category) => {
                             return (
                                 <StyleFilterItems key={category.categoryID}>
                                     <div>
                                         <input type="checkbox" checked={categories.checked} onChange={event => {
-                                            let checked = event.target.checked;
+                                            //let checked = event.target.checked;
                                             setCategories(
                                                 categories.map(data => {
                                                     if (category.categoryID === data.categoryID) {
@@ -83,15 +91,17 @@ export function ListItems() {
                                             handleCheckFilter();
                                         }}>
 
-
-                                        </input></div>
+                                        </input>
+                                    </div>
                                     <div>{category.categoryIDName}</div>
                                 </StyleFilterItems>
                             )
                         })
                     }
-                </div>
+                </StyleFilterCategory>
             </StyleModalFilterContainer>
+
+
 
             <Container>
 
@@ -99,7 +109,7 @@ export function ListItems() {
                 <span>HOME / COLEÇÃO / PRODUTO</span>
 
                 <StyleContainerFilter>
-                    <StyleFilterButton>
+                    <StyleFilterButton onClick={handleOpenFilter}>
                         <i class="fas fa-sliders-h"></i>
                         FILTRO
                     </StyleFilterButton>
@@ -134,6 +144,6 @@ export function ListItems() {
                 </StyleShowCase>
             </Container>
 
-        </>
+        </ContainerComponent>
     )
 }
