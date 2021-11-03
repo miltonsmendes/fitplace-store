@@ -7,6 +7,8 @@ export const StyledContainerCart = styled.div`
     justify-content: center;
     background-color: #ffffff;
 
+    font-family: Montserrat, sans-serif;
+
     border-radius: 4px;
     padding: 2rem;
     margin: 2rem;
@@ -19,7 +21,8 @@ export const StyledTitleCart = styled.div`
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
 
-    color: #99999C;
+    //color: #99999C;
+    color: var(--purple-hover);
     font-weight: 600;
 
     div{
@@ -86,11 +89,14 @@ export const StyledQtd = styled.div`
 
     i{
         margin: 0 0.5rem;
-        color: #CC232C;
+        //color: #CC232C;
+        color: var(--purple-theme);
+
         transition: 0.2s;
     }
     i:hover{
-        color: #88181e;
+        //color: #88181e;
+        color: var(--purple-hover);
         cursor: pointer;
     }
     
@@ -118,7 +124,8 @@ export const StyledSubtotal = styled.div`
     }
 
     i{
-        color: #CC232C;
+        //color: #CC232C;
+        color: var(--purple-theme);
         transition: 0.2s;
     }
     i:hover{
@@ -142,8 +149,10 @@ export const StyledCartFooter = styled.div`
     margin-top: 2rem;
 
 button {
-    background: #343A40;
-    border: 1px solid #343A40;
+    //background: #343A40;
+    background: var(--purple-theme);
+    //border: 1px solid #343A40;
+    border: 1px solid var(--purple-theme);
     border-radius: 4px;
     color: white;
     padding: 0.75rem;
@@ -154,7 +163,8 @@ button {
 }
 
     button:hover {
-        background: #1D2124;
+        //background: #1D2124;
+        background: var(--purple-theme);
     }
 
     div:last-child {

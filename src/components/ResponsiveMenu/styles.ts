@@ -18,6 +18,51 @@ justify-content: center;
 align-items: center;
 font-size: 1.2rem;
 
+.logo-container{
+    order: 1;
+}
+
+
+.cart-icon-container{
+    order: 4;
+    color: #fff;
+    display: flex;
+ 
+
+    .amount-cart{
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        background-color: #FFFFFF;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--purple-hover);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+        top: -10px;
+        right: 5px;
+    }
+}
+
+.cart-icon-container:hover{
+    color: var(--purple-hover);
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+}
+
+.menu-icon{
+    order: 3;
+}
+
+.links-container{
+    order: 2;
+}
+
+
 
 }
 
@@ -75,6 +120,8 @@ font-size: 1.2rem;
 @media screen and (max-width: 960px){
     .NavbarItems {
         position: relative;
+      
+    
     }
 
     .nav-menu {
@@ -87,6 +134,8 @@ font-size: 1.2rem;
         left: -100%;
         opacity: 1;
         transition: all 0.5s ease;
+
+        order: 1;
     }
 
     .nav-menu.active {
@@ -96,6 +145,8 @@ font-size: 1.2rem;
         opacity: 1;
         transition: all 0.5s ease;
         z-index: 1;
+
+        order: 2;
     }
 
     .nav-links{
@@ -124,14 +175,23 @@ font-size: 1.2rem;
         position: absolute;
         top: 0;
         right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
+        transform: translate(-100%, 67%);
+        
+        font-size: 28px;
         cursor: pointer;
+    }
+
+    .cart-icon-container{
+        color: #FFFFFF;
+        
+        position: absolute;
+        right: 7rem;
+        
     }
 
     .fa-times {
         color: #FFFFFF;
-        font-size: 2rem;
+        font-size: 28px;
     }
 
     .nav-links-mobile {
@@ -152,6 +212,8 @@ font-size: 1.2rem;
         color: #B3B4A1;
         transition: 250ms;
     }
+
+    
 
 
 }

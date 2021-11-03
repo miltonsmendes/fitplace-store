@@ -4,6 +4,7 @@ import { HeaderMenu } from "./components/HeaderMenu";
 import { ContainerTitles } from "./components/HeaderMenu/styles";
 import { ResponsiveMenu } from "./components/ResponsiveMenu";
 import { ListItems } from "./components/ListItems";
+import { Footer } from "./components/Footer";
 
 import { GlobalStyle } from "./styles/global";
 
@@ -11,11 +12,11 @@ import { GlobalStyle } from "./styles/global";
 function App() {
   return (
     <>
-    {/* <Logo /> */}
-    <ResponsiveMenu />
-    <ListItems />
-      {/* <BuyCart /> */}
+      <ResponsiveMenu />
+      {/* <ListItems /> */}
+      <BuyCart />
 
+      <Footer />
 
       <GlobalStyle />
     </>
