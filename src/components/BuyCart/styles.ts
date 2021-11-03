@@ -38,11 +38,20 @@ export const StyledTitleCart = styled.div`
 export const StyledProductLine = styled.div`
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
+  
     justify-content: space-around;
-
+    
     margin-top: 1rem;
 
     font-weight: 600;
+    
+
+    @media (max-width: 768px) {
+        
+        grid-template-columns: auto;
+        justify-content: flex-start;
+    }
+
 `;
 
 export const StyledProductDescription = styled.div`
@@ -112,6 +121,7 @@ export const StyledSubtotal = styled.div`
 
     font-weight: 600;
 
+
     div:first-child {
         margin-right: auto;
         //margin-left: auto;
@@ -121,6 +131,7 @@ export const StyledSubtotal = styled.div`
     div:last-child {
         margin-right: auto;
         margin-left: auto;
+        
     }
 
     i{

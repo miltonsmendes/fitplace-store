@@ -1,4 +1,4 @@
-import { BuyCart } from "./components/BuyCart";
+import { NewBuyCart } from "./components/NewBuyCart";
 import { CarouselLauched } from "./components/CarouselLauched";
 import { HeaderMenu } from "./components/HeaderMenu";
 import { ContainerTitles } from "./components/HeaderMenu/styles";
@@ -14,7 +14,7 @@ function App() {
     <>
       <ResponsiveMenu />
       {/* <ListItems /> */}
-      <BuyCart />
+      <NewBuyCart isOpen={true}/>
 
       <Footer />
 

@@ -10,15 +10,15 @@ export const Container = styled.div`
     padding: 2rem 3.6rem;
 
     font-family: Montserrat, sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
 
     height: 180px;
 
     .reserved-rights{
         font-size: 0.5rem;
         color: #FFFFFF;
-        position: absolute;
-        bottom: -100px;
+        position: relative;
+        top: 25px;
     }
    
 

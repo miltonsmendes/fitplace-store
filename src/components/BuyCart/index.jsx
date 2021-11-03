@@ -65,9 +65,6 @@ export function BuyCart() {
         setFakeAPI(prev => prev.filter(item => item.id !== id))
     }
 
-    useEffect(() => {
-        
-    }, [qntChange])
 
     return (
         <>
@@ -83,6 +80,7 @@ export function BuyCart() {
                     return (
                         <ul key={item.id}>
                             <StyledProductLine>
+
                                 <StyledProductDescription>
                                     <div>
                                         <img src={ProductImage} />
@@ -108,7 +106,7 @@ export function BuyCart() {
                                     <div>
                                         {(item.prize * item.qnt).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
                                     </div>
-                                    <div><i class="fas fa-trash" onClick={() => handleDelete(item.id)}></i></div>
+                                    <div className="trash-icon"><i class="fas fa-trash" onClick={() => handleDelete(item.id)}></i></div>
                                 </StyledSubtotal>
 
                             </StyledProductLine>
