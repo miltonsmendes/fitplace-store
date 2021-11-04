@@ -1,4 +1,4 @@
-import { ContainerComponent, StyleModalCartContainer, StyleProductLine, StyleProductInfo, StyledQtd, StyleInputRow } from "./styles";
+import { ContainerComponent, StyleModalCartContainer, StyleProductLine, StyleProductInfo, StyledQtd, StyleInputRow, StyledCartFooter } from "./styles";
 import ProductImage from "../../assets/images/tenisPreto1.jpg";
 import { useState, useEffect } from "react";
 
@@ -82,35 +82,54 @@ export function NewBuyCart(props) {
 
                 <div className="background-modal" />
 
+                <div>
+                    {
+                        fakeAPI.map(item => {
+                            return (
+                                <StyleProductLine>
+                                    <div>
+                                        <img src={ProductImage} />
+                                    </div>
 
-                {
-                    fakeAPI.map(item => {
-                        return (
-                            <StyleProductLine>
-                                <div>
-                                    <img src={ProductImage} />
-                                </div>
+                                    <StyleProductInfo>
 
-                                <StyleProductInfo>
+                                        <div>Tênis de Caminhada Leve Confortável</div>
 
-                                    <div>Tênis de Caminhada Leve Confortável</div>
+                                        <StyleInputRow>
+                                            <StyledQtd>
+                                                <div><i class="fas fa-minus-circle" disabled={item.qnt <= 1 ? true : false} onClick={() => handleMinusButton(item.id)}></i></div>
+                                                <div><input type="number" min="1" value={item.qnt}></input></div>
+                                                <div><i class="fas fa-plus-circle" onClick={() => handlePlusButton(item.id)}></i></div>
+                                            </StyledQtd>
+                                            <div className="partial-prize-amount">
+                                                {(item.prize * item.qnt).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
+                                            </div>
+                                        </StyleInputRow>
 
-                                    <StyleInputRow>
-                                        <StyledQtd>
-                                            <div><i class="fas fa-minus-circle" disabled={item.qnt <= 1 ? true : false} onClick={() => handleMinusButton(item.id)}></i></div>
-                                            <div><input type="number" min="1" value={item.qnt}></input></div>
-                                            <div><i class="fas fa-plus-circle" onClick={() => handlePlusButton(item.id)}></i></div>
-                                        </StyledQtd>
-                                        <div>
-                                        {(item.prize * item.qnt).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
-                                        </div>
-                                    </StyleInputRow>
+                                    </StyleProductInfo>
+                                </StyleProductLine>
 
-                                </StyleProductInfo>
-                            </StyleProductLine>
-                        )
-                    })
-                }
+
+                            )
+                        })
+                    }
+
+                    <StyledCartFooter>
+                        <div className="finish-button">
+                            <button>FINALIZAR PEDIDO</button>
+                        </div>
+                        <div>
+                            <div>
+                                <h5>TOTAL</h5>
+                            </div>
+                            <div>
+                                <h5>{cartValue.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h5>
+                            </div>
+
+                        </div>
+                    </StyledCartFooter>
+                </div>
+
 
 
 
@@ -120,6 +139,6 @@ export function NewBuyCart(props) {
 
             </StyleModalCartContainer>
 
-        </ContainerComponent>
+        </ContainerComponent >
     );
 }
