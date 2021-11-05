@@ -154,6 +154,15 @@ font-family: Montserrat, sans-serif;
   
 }
 
+@media (max-width: 800px){
+    width: 30vw;
+}
+
+
+@media (max-width: 600px){
+    width: 50vw;
+}
+
 .background-modal{
     background: black;
     opacity: 0.5;
@@ -162,14 +171,24 @@ font-family: Montserrat, sans-serif;
     position: absolute;
     top: 0;
     left: 20vw;
+
+    @media (max-width: 800px){
+    width: 70vw;
+    left: 30vw;
+    
+    }
+
+
+    @media (max-width: 600px){
+    width: 50vw;
+    left: 50vw;
+}
     
 }
 
 
 
-@media (max-width: 800px){
-    width: 50%;
-}
+
 
 div:first-child{
     display: flex;

@@ -1,6 +1,7 @@
 import { ContainerComponent, StyleModalCartContainer, StyleProductLine, StyleProductInfo, StyledQtd, StyleInputRow, StyledCartFooter } from "./styles";
 import ProductImage from "../../assets/images/tenisPreto1.jpg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useCartModal } from "../../hooks/useCartModal";
 
 // interface DataAPIProps {
 //     id: number,
@@ -9,7 +10,11 @@ import { useState, useEffect } from "react";
 //     img: string,
 // }
 
-export function NewBuyCart(props) {
+export function NewBuyCart() {
+
+    const {isOpen, openModal} = useCartModal();
+
+    console.log(isOpen);
 
     const [fakeAPI, setFakeAPI] = useState([
         {
@@ -36,7 +41,7 @@ export function NewBuyCart(props) {
     ]);
 
     const [qntChange, setQntChange] = useState(false);
-    const [closeCartModal, setCartCloseModal] = useState(props.isOpen);
+    //const [closeCartModal, setCartCloseModal] = useState(isOpen);
 
     let cartValue = 0;
 
@@ -66,16 +71,18 @@ export function NewBuyCart(props) {
         setFakeAPI(prev => prev.filter(item => item.id !== id))
     }
 
-    function handleOpenFilter() {
-        setCartCloseModal(!closeCartModal);
-    }
+    // function handleOpenFilter() {
+    //     setCartCloseModal(!closeCartModal);
+    // }
+
+    
 
 
     return (
         <ContainerComponent>
 
-            <StyleModalCartContainer className={closeCartModal ? "visible" : "hidden"}>
-                <div className="title-modal-row" onClick={handleOpenFilter}>
+            <StyleModalCartContainer className={isOpen ? "visible" : "hidden"}>
+                <div className="title-modal-row" onClick={openModal}>
                     <div>CARRINHO</div>
                     <div><i className='fas fa-times'></i></div>
                 </div>

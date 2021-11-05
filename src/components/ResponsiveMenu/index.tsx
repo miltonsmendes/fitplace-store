@@ -1,15 +1,22 @@
-import { useState } from "react";
-import { StyleNavBar } from "./styles";
+import { useContext, useState } from "react";
+import { useCartModal } from "../../hooks/useCartModal";
 
 import { MenuItems } from "./MenuItems";
 
+import { StyleNavBar } from "./styles";
 import { Logo } from "../Logo";
 
 
+
 export function ResponsiveMenu() {
+    const {openModal} = useCartModal();
+
+
     const [clicked, setClicked] = useState(false);
 
-    function handleClick() {
+
+
+    function handleClickMenu() {
         setClicked(!clicked);
     }
 
@@ -25,11 +32,11 @@ export function ResponsiveMenu() {
 
                 
 
-                <div className="menu-icon" onClick={handleClick}>
+                <div className="menu-icon" onClick={handleClickMenu}>
                     <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
 
-                <div className="cart-icon-container">
+                <div className="cart-icon-container" onClick={openModal}>
                     <i className="fas fa-shopping-cart"></i>
                     <div className="amount-cart">1</div>
                 </div>
